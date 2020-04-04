@@ -2,24 +2,26 @@ import socket
 
 #prepare the fill-ins based on user input
 server = input('Enter the name of website url (Ex: "www.kennesaw.edu"): ')
-path = ""
-output_name = input('Enter name for output file: ')
+path = "/"
+#output_name = input('Enter name for output file: ')
 
 #standard http port number
 port = 80
 
-#create the HTTP method for connecting to the website
-initial_line = "GET " + path + " HTTP/1.1 \n"
-header_line = "Host: " + server + "\n"
+#create the HTTP Request methods for connecting to the website
+initial_line = "GET " + path + " HTTP/1.1\r\n"
+header_line = "Host: " + server + "\r\n\r\n"
+msg = initial_line + header_line
 
 #create socket
 client_socket = socket.socket()
 
 #connect socket to web server and retrieve results
-client_socket.connect((server, port))
+client_socket.connect((server, port),)
 
-client_socket.sendall(initial_line.encode())
-client_socket.sendall(header_line.encode())
+client_socket.sendall(msg.encode())
+#m = 'GET / HTTP/1.1\r\nHost: www.microsoft.com\r\n\r\n'
+#client_socket.sendall(m.encode())
 client_socket.sendall("\n".encode())
 
 client_socket.shutdown(1)
