@@ -17,11 +17,9 @@ msg = initial_line + header_line
 client_socket = socket.socket()
 
 #connect socket to web server and retrieve results
-client_socket.connect((server, port),)
+client_socket.connect((server, port))
 
 client_socket.sendall(msg.encode())
-#m = 'GET / HTTP/1.1\r\nHost: www.microsoft.com\r\n\r\n'
-#client_socket.sendall(m.encode())
 client_socket.sendall("\n".encode())
 
 client_socket.shutdown(1)
