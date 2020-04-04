@@ -3,8 +3,7 @@ import socket
 #prepare the fill-ins based on user input
 server = input('Enter the name of website url (Ex: "www.kennesaw.edu"): ')
 path = "/"
-output_name = input('Enter name for output file: ')
-file_name = output_name + '.txt'
+output_name = input('Enter name for output file: ') + '.txt'
 
 #standard http port number
 port = 80
@@ -36,6 +35,6 @@ print(response)
 client_socket.close()
 
 #output to file
-file = open(file_name, 'w')
+file = open(output_name, 'w')
 file.write(response)
 file.close()
